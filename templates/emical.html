@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Front</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<style>
+    .content {
+  max-width: 500px;
+  margin: auto;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+table { 
+  padding: 30px;
+  margin: 40px;
+  background-color: #F4F4F4;
+  border-radius: 40px;
+  color: black;
+  border: 1px black solid transparent;
+  font-family: Avenir;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+    .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.center {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px;
+}
+.button1 {background-color: #06110c;} /* Green */
+.button1 {border-radius: 12px}
+.button2 {background-color: #020708;} 
+.button2 {border-radius: 12px}
+.button3 {background-color: #000000;}
+.button3 {border-radius: 12px}/* Blue */
+</style>
+</head>
+<body>
+
+<!-- Side Navigation -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
+  <h1 class="w3-xxxlarge w3-text-theme">Side Navigation</h1>
+  <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button">Link 4</a>
+</nav>
+
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <div class="w3-center">
+  <h1 class="w3-xxxlarge w3-animate-bottom">EMI Calculator</h1>
+    <div class="w3-padding-32">
+    </div>
+  </div>
+</header>
+
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+      <header class="w3-container w3-theme-l1"> 
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-display-topright">×</span>
+        <h4>Oh snap! We just showed you a modal..</h4>
+        <h5>Because we can <i class="fa fa-smile-o"></i></h5>
+      </header>
+      <div class="w3-padding">
+        <p>Cool huh? Ok, enough teasing around..</p>
+        <p>Go to our <a class="w3-btn" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
+      </div>
+      <footer class="w3-container w3-theme-l1">
+        <p>Modal footer</p>
+      </footer>
+    </div>
+</div>
+
+<div class="w3-row-padding w3-center w3-margin-top">
+<div class="w3-third">
+  <div style="min-height:660px">
+  <p>
+  </p>
+</p>
+  </div>
+  
+</div>
+
+<div class="w3-third">
+  <div style="min-height:560px">
+  <body bgcolor="white">
+    <div class="content">
+<form name="loandata"style="text-align: center; ">
+  <table>
+    <tr><td colspan="3"><b>Enter EMI Information:</b></td></tr>
+    <tr>
+      <td>Amount(any currency):</td>
+      <td><input type="text" name="principal" size="16" 
+                 onchange="calculate();"></td>
+    </tr>
+    <tr>
+      <td>Rate of interest:</td>
+      <td><input type="text" name="interest" size="12" 
+                 onchange="calculate();"></td>
+    </tr>
+    <tr>
+      <td>Repayment period (years):</td>
+      <td><input type="text" name="years" size="12" 
+                 onchange="calculate();"></td>
+    </tr>
+    <tr>
+        <td colspan="3">
+      <input type="button"class="w3-button w3-black w3-round-xxlarge" value="Compute" onclick="calculate();">
+    </td>
+</tr>
+</div>
+</div>
+</table>
+<table>
+    <tr><td colspan="3">
+      <b>Payment Information:</b>
+    </td></tr>
+    <tr>
+      <td>Monthly payment:</td>
+      <td><input type="text" name="payment" size="12"></td>
+    </tr>
+    <tr>
+      <td>Total payment:</td>
+      <td><input type="text" name="total" size="12"></td>
+    </tr>
+    <tr>
+      <td>Total interest:</td>
+      <td><input type="text" name="totalinterest" size="12"></td>
+    </tr>
+  </table>
+  <button class="w3-button w3-black w3-round-xxlarge" type="submit" name="btn" value="backbtn">Go back</button>
+</form>
+    </p>
+  </div>
+</div>
+
+<div class="w3-third">
+  <divs tyle="min-height:460px">
+  <h3><strong></strong></h3><br>
+    
+</p>
+  </div>
+</div>
+</div>
+  
+  <script language="JavaScript">
+    function calculate() {
+        var principal = document.loandata.principal.value;
+        var interest = document.loandata.interest.value / 100 / 12;
+        var payments = document.loandata.years.value * 12;
+    
+        var x = Math.pow(1 + interest, payments);
+        var monthly = (principal*x*interest)/(x-1);
+    
+        if (!isNaN(monthly) && 
+            (monthly != Number.POSITIVE_INFINITY) &&
+            (monthly != Number.NEGATIVE_INFINITY)) {
+    
+            document.loandata.payment.value = round(monthly);
+            document.loandata.total.value = round(monthly * payments);
+            document.loandata.totalinterest.value = 
+                round((monthly * payments) - principal);
+        }
+       
+        else {
+            document.loandata.payment.value = "";
+            document.loandata.total.value = "";
+            document.loandata.totalinterest.value = "";
+        }
+    }
+    
+    function round(x) {
+      return Math.round(x*100)/100;
+    }
+    </script>
+    </div>
+</body>
+</html>
